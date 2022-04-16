@@ -1,0 +1,8 @@
+server:
+  port: 80
+
+datasource:
+  driver: com.mysql.cj.jdbc.driver
+  url:jdbc: mysql://localhost/a
+  username: root
+  password: root

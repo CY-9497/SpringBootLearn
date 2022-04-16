@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2022/4/15 11:49
  *
  * 引导类  SpringBoot的入口
+ * 与controller放在同一个包内，这是硬性要求
  */
 @SpringBootApplication
 public class HelloApplication {
