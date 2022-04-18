@@ -14,4 +14,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class IBookServiceImpl extends ServiceImpl<BookDao, Book> implements IBookService {
+
 }
