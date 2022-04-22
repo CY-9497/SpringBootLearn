@@ -2,39 +2,36 @@ package com.ch.controller;
 
 import com.ch.pojo.Book;
 import com.ch.service.IBookService;
+import com.ch.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * @author 渔郎
- * @CLassName com.ch.controller.BookController
+ * @CLassName IBookController
  * @Description TODO
- * @Date 2022/4/18 15:27
+ * @Date 2022/4/22 10:24
  */
 @RestController
-@RequestMapping("/book")
-public class BookController {
-
+@RequestMapping("/books")
+public class IBookController {
     private IBookService iBookService;
     @Autowired
     public void setiBookService(IBookService iBookService) {
         this.iBookService = iBookService;
     }
 
-
     @GetMapping
-    public List<Book> getAll(){
-        return iBookService.list();
+    public R getAll(){
+        return new R(true,iBookService.list());
     }
 
     @GetMapping("/{id}")
-    public Book getById(@PathVariable Integer id){
-        return iBookService.getById(id);
+    public R getById(@PathVariable Integer id){
+        return new R(true, iBookService.getById(id));
     }
     @PostMapping
-    public Boolean save(@RequestBody Book book){
-        return iBookService.save(book);
+    public R save(@RequestBody Book book){
+        return new R(iBookService.save(book));
     }
 }
