@@ -32,6 +32,7 @@ public class IBookController {
     }
     @PostMapping
     public R save(@RequestBody Book book){
+        System.out.println(book);
         return new R(iBookService.save(book));
     }
 }
