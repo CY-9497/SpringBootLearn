@@ -1,6 +1,6 @@
 package com.ch.controller;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.ch.pojo.Book;
 import com.ch.service.IBookService;
 import com.ch.utils.R;
@@ -50,9 +50,25 @@ public class IBookController {
         return new R(flag,flag?"修改成功^_^":"修改失败-_-!");
     }
 
+//    @GetMapping("/{currentPage}/{pageSize}")
+//    public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize){
+//        Page<Book> p = new Page<>(currentPage,pageSize);
+//        Page<Book> page = iBookService.page(p);
+//        //如果当前页码值大于总页码值，使用最大页码值作为总页码值
+//        if (currentPage >page.getPages()){
+//            page = iBookService.page(new Page<>(page.getPages(),pageSize));
+//        }
+//        return new R(true,page );
+//    }
+
     @GetMapping("/{currentPage}/{pageSize}")
-    public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize){
-        Page<Book> page = new Page<>(currentPage,pageSize);
-        return new R(true, iBookService.page(page));
+    public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize, Book book) {
+//        Page<Book> p = new Page<>(currentPage, pageSize);
+        IPage<Book> page = iBookService.getPage(currentPage, pageSize, book);
+        //如果当前页码值大于总页码值，使用最大页码值作为总页码值
+        if (currentPage > page.getPages()) {
+            page = iBookService.getPage((int) page.getPages(), pageSize, book);
+        }
+        return new R(true, page);
     }
 }
