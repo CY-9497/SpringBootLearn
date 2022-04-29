@@ -1,5 +1,6 @@
 package com.ch.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ch.pojo.Book;
 import com.ch.service.IBookService;
 import com.ch.utils.R;
@@ -47,5 +48,11 @@ public class IBookController {
     public R updateById(@RequestBody Book book){
         boolean flag = iBookService.updateById(book);
         return new R(flag,flag?"修改成功^_^":"修改失败-_-!");
+    }
+
+    @GetMapping("/{currentPage}/{pageSize}")
+    public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize){
+        Page<Book> page = new Page<>(currentPage,pageSize);
+        return new R(true, iBookService.page(page));
     }
 }

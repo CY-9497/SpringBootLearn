@@ -8,4 +8,5 @@ import com.ch.pojo.Book;
  */
 public interface IBookService extends IService<Book> {
 
+
 }
