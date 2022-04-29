@@ -33,6 +33,19 @@ public class IBookController {
     @PostMapping
     public R save(@RequestBody Book book){
         System.out.println(book);
-        return new R(iBookService.save(book));
+        boolean flag = iBookService.save(book);
+        return new R(flag,flag?"添加成功^_^":"添加失败-_-!");
+    }
+
+    @DeleteMapping("/{id}")
+    public R removeById(@PathVariable Integer id){
+        boolean flag = iBookService.removeById(id);
+        return new R(flag,flag?"删除成功^_^":"删除失败-_-!");
+    }
+
+    @PutMapping
+    public R updateById(@RequestBody Book book){
+        boolean flag = iBookService.updateById(book);
+        return new R(flag,flag?"修改成功^_^":"修改失败-_-!");
     }
 }
