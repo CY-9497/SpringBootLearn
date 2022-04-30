@@ -6,3 +6,11 @@ datasource:
   url:jdbc: mysql://localhost/a
   username: root
   password: root
+
+servers:
+  ipAddress:192.168.1.1
+  port:2345
+  timeout:-1
+
+datasources:
+  driverClassName: com.mysql.cj.jdbc.driver
