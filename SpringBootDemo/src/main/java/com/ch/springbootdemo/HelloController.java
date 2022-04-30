@@ -1,5 +1,7 @@
 package com.ch.springbootdemo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,11 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description TODO
  * @Date 2022/4/15 15:15
  */
+
 @RestController
 public class HelloController {
 
-    private MysqlDatasource datasource;
+    private static final Logger log = LoggerFactory.getLogger(HelloController.class);
 
+    private MysqlDatasource datasource;
     @Autowired
     public void setDatasource(MysqlDatasource datasource) {
         this.datasource = datasource;
@@ -23,6 +27,10 @@ public class HelloController {
     @RequestMapping("/hello")
     public String hello(){
         System.out.println(datasource);
+        log.debug("debug..");
+        log.info("info..");
+        log.warn("warn..");
+        log.error("error..");
         return "hello SpringBoot!!!";
     }
 }
