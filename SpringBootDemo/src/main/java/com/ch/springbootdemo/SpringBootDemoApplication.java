@@ -17,7 +17,7 @@ public class SpringBootDemoApplication {
 
     @Bean
     @ConfigurationProperties(prefix = "datasources")
-    public DruidDataSource dataSource(){
+    public DruidDataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         return dataSource;
     }
