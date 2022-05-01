@@ -29,12 +29,12 @@ public class IBookServiceImpl extends ServiceImpl<BookDao, Book> implements IBoo
     @Override
     public IPage<Book> getPage(int currentPage, int pageSize, Book book) {
         LambdaQueryWrapper<Book> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.like(Strings.isNotEmpty(book.getType()),Book::getType,book.getType());
-        queryWrapper.like(Strings.isNotEmpty(book.getName()),Book::getName,book.getName());
-        queryWrapper.like(Strings.isNotEmpty(book.getDescription()),Book::getDescription,book.getDescription());
+        queryWrapper.like(Strings.isNotEmpty(book.getType()), Book::getType, book.getType());
+        queryWrapper.like(Strings.isNotEmpty(book.getName()), Book::getName, book.getName());
+        queryWrapper.like(Strings.isNotEmpty(book.getDescription()), Book::getDescription, book.getDescription());
 
         IPage<Book> page = new Page<>(currentPage, pageSize);
-        bookDao.selectPage(page,queryWrapper);
+        bookDao.selectPage(page, queryWrapper);
         return page;
     }
 }

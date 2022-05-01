@@ -18,13 +18,14 @@ public class HelloController {
 //    private static final Logger log = LoggerFactory.getLogger(HelloController.class);
 
     private MysqlDatasource datasource;
+
     @Autowired
     public void setDatasource(MysqlDatasource datasource) {
         this.datasource = datasource;
     }
 
     @RequestMapping("/hello")
-    public String hello(){
+    public String hello() {
         System.out.println(datasource);
         log.debug("debug..");
         log.info("info..");

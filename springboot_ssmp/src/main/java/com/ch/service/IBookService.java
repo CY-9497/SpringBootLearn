@@ -9,11 +9,11 @@ import com.ch.pojo.Book;
  */
 public interface IBookService extends IService<Book> {
     /**
-     *
      * 获取分页信息
+     *
      * @param currentPage 当前页
-     * @param pageSize 页数
-     * @param book 实体
+     * @param pageSize    页数
+     * @param book        实体
      * @return 集合
      */
     IPage<Book> getPage(int currentPage, int pageSize, Book book);
