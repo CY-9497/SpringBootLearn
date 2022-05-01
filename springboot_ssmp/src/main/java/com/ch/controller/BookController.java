@@ -18,6 +18,7 @@ import java.util.List;
 public class BookController {
 
     private IBookService iBookService;
+
     @Autowired
     public void setiBookService(IBookService iBookService) {
         this.iBookService = iBookService;
@@ -25,16 +26,17 @@ public class BookController {
 
 
     @GetMapping
-    public List<Book> getAll(){
+    public List<Book> getAll() {
         return iBookService.list();
     }
 
     @GetMapping("/{id}")
-    public Book getById(@PathVariable Integer id){
+    public Book getById(@PathVariable Integer id) {
         return iBookService.getById(id);
     }
+
     @PostMapping
-    public Boolean save(@RequestBody Book book){
+    public Boolean save(@RequestBody Book book) {
         return iBookService.save(book);
     }
 }
