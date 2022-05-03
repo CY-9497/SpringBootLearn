@@ -35,6 +35,7 @@ public class IBookServiceImpl extends ServiceImpl<BookDao, Book> implements IBoo
 
         IPage<Book> page = new Page<>(currentPage, pageSize);
         bookDao.selectPage(page, queryWrapper);
+
         return page;
     }
 }
