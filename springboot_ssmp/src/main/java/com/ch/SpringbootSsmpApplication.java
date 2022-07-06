@@ -9,5 +9,8 @@ public class SpringbootSsmpApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootSsmpApplication.class, args);
     }
+    /**
+     *
+     */
 
 }

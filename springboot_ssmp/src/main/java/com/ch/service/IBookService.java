@@ -8,7 +8,6 @@ import com.ch.pojo.Book;
  * @author 青梅君
  */
 public interface IBookService extends IService<Book> {
-
     /**
      * 获取分页信息
      *
