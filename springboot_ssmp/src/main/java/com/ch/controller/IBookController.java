@@ -67,7 +67,6 @@ public class IBookController {
 //    }
 
 
-
     @GetMapping("/{currentPage}/{pageSize}")
     public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize, Book book) {
 //        Page<Book> p = new Page<>(currentPage, pageSize);
